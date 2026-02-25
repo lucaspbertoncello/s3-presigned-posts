@@ -25,7 +25,7 @@ To deploy the API:
 ```
 cd api
 pnpm install
-npx serverless deploy
+sls deploy
 ```
 
 Requires AWS credentials and provider environment variables (region, etc.).
