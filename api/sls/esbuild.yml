@@ -1,0 +1,4 @@
+esbuild:
+  minify: true
+  bundle: true
+  sourcemap: false

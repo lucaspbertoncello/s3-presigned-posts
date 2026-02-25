@@ -1,0 +1,15 @@
+name: aws
+runtime: nodejs22.x
+architecture: arm64
+region: us-east-1
+httpApi:
+  cors: true
+environment:
+  BUCKET_NAME: !Ref S3Bucket
+iam:
+  role:
+    statements:
+      - Effect: Allow
+        Resource: !Sub "arn:aws:s3:::${S3Bucket}/*"
+        Action:
+          - s3:PutObject

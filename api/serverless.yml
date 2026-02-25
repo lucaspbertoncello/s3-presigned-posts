@@ -1,0 +1,24 @@
+org: moullxndev
+service: s3-presigned-posts
+
+provider: ${file(./sls/provider.yml)}
+build: ${file(./sls/esbuild.yml)}
+package:
+  individually: true
+
+functions:
+  generatePresignedPut:
+    handler: src/generatePresignedPut.handler
+    events:
+      - httpApi:
+          path: /presigned-put
+          method: PUT
+  generatePresignedPost:
+    handler: src/generatePresignedPost.handler
+    events:
+      - httpApi:
+          path: /presigned-post
+          method: POST
+
+resources:
+  Resources: ${file(./sls/resources/bucket.yml)}

@@ -1,0 +1,15 @@
+S3Bucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    BucketName: ${self:service}-${sls:stage}-uploads
+    PublicAccessBlockConfiguration:
+      BlockPublicAcls: true
+      BlockPublicPolicy: true
+      IgnorePublicAcls: true
+      RestrictPublicBuckets: true
+    CorsConfiguration:
+      CorsRules:
+        - AllowedHeaders: ["*"]
+          AllowedMethods: [PUT, POST]
+          AllowedOrigins: ["http://localhost:5173"]
+          ExposedHeaders: [ETag]
