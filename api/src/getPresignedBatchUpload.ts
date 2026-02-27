@@ -32,7 +32,7 @@ export async function handler(event: APIGatewayProxyEventV2) {
 
   const { fields, url } = await createPresignedPost(s3Client, {
     Bucket: process.env.BUCKET_NAME!,
-    // "${filename}" no final faz a SDK injetar uma condition starts-with
+    // "${filename}" no final faz a SDK injetar uma condition starts-with ["starts-with", "key", "user123/"]
     // em vez de fixar a key exata. O S3 aceita qualquer key que comece com "user-123/"
     Key: "user-123/${filename}",
     Expires: 600,

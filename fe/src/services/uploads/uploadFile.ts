@@ -1,7 +1,7 @@
 import { httpClient } from "@/lib/httpClient";
-import { getPresignedPost } from "./getPresignedPost";
+import { getPresignedPost } from "../presignedUrls/getPresignedPost";
 
-export async function uploadFile(file: File) {
+export async function uploadFile(file: File): Promise<void> {
   // recebemos a url para upload para o s3 diretamente
   // e os fields (bucket, content-type, x-amz-...)
   // para embutirmos ele no formData
@@ -22,6 +22,5 @@ export async function uploadFile(file: File) {
   // pois em alguns navegadores file.type pode ser "" ou inconsistente.
   formData.append("file", file);
 
-  const { data } = await httpClient.post(url, formData);
-  return data;
+  await httpClient.post(url, formData);
 }

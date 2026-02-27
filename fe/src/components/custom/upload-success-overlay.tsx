@@ -9,7 +9,7 @@ export function UploadSuccessOverlay({ show }: UploadSuccessOverlayProps) {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white/10 dark:bg-black/10 backdrop-blur-2xl"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-2xl dark:bg-black/10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -27,10 +27,10 @@ export function UploadSuccessOverlay({ show }: UploadSuccessOverlayProps) {
             }}
           >
             {/* glow behind icon */}
-            <div className="absolute -top-4 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-primary/15 blur-2xl" />
+            <div className="bg-primary/15 absolute -top-4 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full blur-2xl" />
 
             <motion.div
-              className="relative flex size-20 items-center justify-center rounded-full bg-linear-to-br from-primary/30 to-primary/10 ring-4 ring-primary/20"
+              className="from-primary/30 to-primary/10 ring-primary/20 relative flex size-20 items-center justify-center rounded-full bg-linear-to-br ring-4"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{
@@ -41,7 +41,7 @@ export function UploadSuccessOverlay({ show }: UploadSuccessOverlayProps) {
               }}
             >
               <svg
-                className="size-10 text-primary"
+                className="text-primary size-10"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -69,7 +69,7 @@ export function UploadSuccessOverlay({ show }: UploadSuccessOverlayProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.35 }}
               >
-                Upload concluído
+                Uploads concluídos
               </motion.h2>
               <motion.p
                 className="text-muted-foreground max-w-[240px] text-sm leading-relaxed"
@@ -77,7 +77,7 @@ export function UploadSuccessOverlay({ show }: UploadSuccessOverlayProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.35 }}
               >
-                Seu arquivo foi enviado com sucesso e está seguro na nuvem.
+                Seus arquivos foram enviados com sucesso e estão seguros na nuvem.
               </motion.p>
             </div>
           </motion.div>

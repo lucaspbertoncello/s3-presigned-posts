@@ -1,5 +1,5 @@
 import { getErrorMessage } from "@/lib/utils";
-import { uploadFile } from "@/services/uploadFile";
+import { uploadFile } from "@/services/uploads/uploadFile";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
