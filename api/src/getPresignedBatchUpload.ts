@@ -47,6 +47,9 @@ export async function handler(event: APIGatewayProxyEventV2) {
     // A condition ["starts-with", "$Content-Type", "image/"] já cobre a validação
     // de forma flexível: aceita image/jpeg, image/png, image/webp, etc.
     // O cliente deve enviar o Content-Type correto no form — não precisamos fixá-lo aqui.
+    Fields: {
+      keyPrefix: "user-123/",
+    },
   });
 
   return response({ statusCode: 200, body: { fields, url } });

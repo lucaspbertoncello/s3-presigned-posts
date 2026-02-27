@@ -8,7 +8,7 @@ export async function batchUploadFile(files: File[]): Promise<void> {
   await Promise.allSettled(
     files.map(async (file) => {
       const formData = new FormData();
-      const fileKey = `user1/${file.name}-${window.crypto.randomUUID()}`;
+      const fileKey = `${fields.keyPrefix}${file.name}-${window.crypto.randomUUID()}`;
 
       Object.entries(fields).forEach(([key, value]) => {
         // ignora o campo key para sobrescrevermos depois
