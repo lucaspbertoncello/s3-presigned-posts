@@ -12,7 +12,7 @@ export async function batchUploadFile(files: File[]): Promise<void> {
 
       Object.entries(fields).forEach(([key, value]) => {
         // ignora o campo key para sobrescrevermos depois
-        if (key !== "key") {
+        if (key !== "key" && key === "keyPrefix") {
           formData.append(key, value);
         }
       });
