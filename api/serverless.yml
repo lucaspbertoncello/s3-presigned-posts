@@ -19,6 +19,12 @@ functions:
       - httpApi:
           path: /presigned-post
           method: POST
+  getPresignedBatchUpload:
+    handler: src/getPresignedBatchUpload.handler
+    events:
+      - httpApi:
+          path: /batch-presigned-post
+          method: POST
 
 resources:
   Resources: ${file(./sls/resources/bucket.yml)}
